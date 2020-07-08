@@ -1,4 +1,4 @@
-###[一、安装使用](https://github.com/nuysoft/Mock/wiki/Getting-Started)
+### [一、安装使用](https://github.com/nuysoft/Mock/wiki/Getting-Started)
 - Node (CommonJS)
 ```
 # 安装
@@ -21,13 +21,13 @@ console.log(JSON.stringify(data, null, 4))
 
 - [JSON.stringify的三个参数](https://www.cnblogs.com/JQstronger/p/9052435.html)
 
-###[二、语法规范](https://github.com/nuysoft/Mock/wiki/Syntax-Specification)
+### [二、语法规范](https://github.com/nuysoft/Mock/wiki/Syntax-Specification)
 Mock.js 的语法规范包括两部分：
 
 **数据模板**定义规范（Data Template Definition，DTD）
 **数据占位符**定义规范（Data Placeholder Definition，DPD）
 
-####(一)数据模板定义规范 DTD
+#### (一)数据模板定义规范 DTD
 **数据模板中的每个属性由 3 部分构成：属性名、生成规则、属性值：**
 
 ```
@@ -54,14 +54,14 @@ Mock.js 的语法规范包括两部分：
 - 属性值 中可以含有 `@占位符`。
 - 属性值 还指定了最终值的初始值和类型。
   
-#####1. 属性值是字符串 String
+##### 1. 属性值是字符串 String
 
 1. `'name|min-max': string`
    通过重复 string 生成一个字符串，重复次数大于等于 min，小于等于 max.
 2. `'name|count': string`
    通过重复 string 生成一个字符串，重复次数等于 count。
 
-#####2. 属性值是数字 Number
+##### 2. 属性值是数字 Number
 1. `'name|+1': number`
    属性值自动加 1，初始值为 number。
 2. `'name|min-max': number`
@@ -84,19 +84,19 @@ Mock.js 的语法规范包括两部分：
       }
 ```
 
-#####3. 属性值是布尔型 Boolean
+##### 3. 属性值是布尔型 Boolean
 1. `'name|1': boolean`
    随机生成一个布尔值，值为 true 的概率是 1/2，值为 false 的概率同样是 1/2。
 2. `'name|min-max': value`
    随机生成一个布尔值，值为 `value (value是boolean类型)`的概率是` min / (min + max)`，值为` !value `的概率是 `max / (min + max)`。
 
-#####4. 属性值是对象 Object
+##### 4. 属性值是对象 Object
 1. `'name|count': object`
    从属性值 object 中随机选取 count 个属性。
 2. `'name|min-max': object`
    从属性值 object 中随机选取 min 到 max 个属性。
 
-#####5. 属性值是数组 Array
+##### 5. 属性值是数组 Array
 1. `'name|1': array`
    从属性值 array 中随机选取 1 个元素，作为最终值。
 2. `'name|+1': array`
@@ -106,12 +106,12 @@ Mock.js 的语法规范包括两部分：
 4. `'name|count': array`
    通过重复属性值 array 生成一个新数组，重复次数为 count。
 
-#####6. 属性值是函数 Function
+##### 6. 属性值是函数 Function
 1. `name': function`
 
    执行函数 function，取其返回值作为最终的属性值，函数的上下文为属性 'name' 所在的对象。
 
-#####7. 属性值是正则表达式 RegExp
+##### 7. 属性值是正则表达式 RegExp
 1. `'name': regexp`
 根据正则表达式 regexp 反向生成可以匹配它的字符串。用于生成自定义格式的字符串。
 ```
@@ -129,7 +129,7 @@ Mock.js 的语法规范包括两部分：
 ```
 
 
-####(二)数据占位符定义规范 DPD
+#### (二)数据占位符定义规范 DPD
 占位符 只是在属性值字符串中占个位置，并不出现在最终的属性值中。
 
 占位符 的格式为：
@@ -167,7 +167,7 @@ Mock.js 的语法规范包括两部分：
    }
 ```
 
-###[三、Mock.mock()](https://github.com/nuysoft/Mock/wiki/Mock.mock())
+### [三、Mock.mock()](https://github.com/nuysoft/Mock/wiki/Mock.mock())
 ---
 **Mock.mock( rurl?, rtype?, template|function( options ) )**
 
@@ -352,7 +352,7 @@ Mock.js 的语法规范包括两部分：
 >从 1.0 开始，Mock.js 通过覆盖和模拟原生 XMLHttpRequest 的行为来拦截 Ajax 请求，不再依赖于第三方 Ajax 工具库（例如 jQuery、Zepto 等）。
 
 
-###[四、Mock.setup()](https://github.com/nuysoft/Mock/wiki/Mock.setup())
+### [四、Mock.setup()](https://github.com/nuysoft/Mock/wiki/Mock.setup())
 
 - Mock.setup( settings )
 配置拦截 Ajax 请求时的行为。支持的配置项有：timeout。
@@ -422,7 +422,7 @@ Mock.Random 中的方法与数据模板的 @占位符 一一对应，在需要�
    // => { constellation: "射手座" }
 ```
 
-####[(一)Basic](https://github.com/nuysoft/Mock/wiki/Basic)
+#### [(一)Basic](https://github.com/nuysoft/Mock/wiki/Basic)
 
 Random.boolean( min?, max?, current? )
 
